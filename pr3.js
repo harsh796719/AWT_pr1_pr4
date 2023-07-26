@@ -1,81 +1,128 @@
+// Using let
+
 let x = 10;
-if (true) {
-    let x = 20;
-    console.log(x);
+x = 20; 
+console.log("X : ",x);
+
+// Using const
+
+const y = 5;
+//y = 7; // Invalid, will throw an error
+console.log("Y : ",y);
+
+
+function add(num1, num2) {
+    return num1 + num2;
+  }
+  console.log("Regular function : ",add(1,2));
+  
+  // Arrow function
+  hello = () => {
+    return "Hello World!";
+  }
+
+
+const arr1 = [1, "harsh",3.14];
+console.log("without spread ... of : ",arr1);
+const arr2 = [...arr1, true, 5];
+console.log("With spread ... of : ",arr2);
+
+
+const arr = [1, "harsh", 3.14];
+console.log("Array : ",arr);
+console.log("for/of ");
+for (const element of arr) {
+  console.log(element);
 }
-console.log(x);
-
-const PI = 3.14;
-// PI = 3.1415; error
 
 
-const addArrow = (a, b) => a + b;
-console.log(addArrow(2, 3));
+//Map Objects
+console.log("map objects ");
+const map1 = new Map();
 
-const numbers = [1, 2, 3];
-const newNumbers = [...numbers, 4, 5];
+map1.set('a', 1);
+map1.set('b', 2);
+map1.set('c', 3);
 
-console.log(newNumbers);
+console.log(map1.get('a'));
+// Expected output: 1
 
-const cs = ["red", "green", "blue"];
-for (const color of cs) {
-    console.log(color);
-}
+map1.set('a', 97);
 
-const myMap = new Map();
-myMap.set("name", "Harsh");
-myMap.set("age", 19);
+console.log(map1.get('a'));
+// Expected output: 97
 
-console.log(myMap.get("name"));
-console.log(myMap.get("age"));
+console.log(map1.size);
+// Expected output: 3
 
+map1.delete('b');
+
+console.log(map1.size);
+// Expected output: 2
+
+//set objects
+console.log("\n Set objects ");
 const mySet = new Set();
-mySet.add(1);
-mySet.add(2);
-mySet.add(2);
+
+mySet.add(1); 
+mySet.add(5); 
+mySet.add(5.5); 
+mySet.add("harsh"); 
+
+
 console.log(mySet);
 
-
-class Person {
+//classes 
+console.log("\nclasses ");
+class harsh {
     constructor(name) {
-        this.name = name;
+      this.name = name;
     }
-
-    sHello() {
-        console.log(`Hii, my name is ${this.name}`);
+  
+    greeting() {
+      console.log(`Hello, i am ${this.name}`);
     }
-}
+  }
+  
+  const person = new harsh('harsh');
+  person.greeting();
+  
 
-const hp = new Person("Harsh");
-hp.Hello();
-
-
-function fetchData() {
+  //promises 
+  console.log("\npromises");
+  function fetchData() {
     return new Promise((resolve, reject) => {
-       
-        setTimeout(() => {
-            const data = "Resolved data";
-            // resolve the promise with the data
-            resolve(data);
-        }, 2000);
+        const data = "resolved data";
+        resolve(data);
     });
-}
+  }
+  
+  // Using promises
+  fetchData()
+    .then((result)=>console.log(result))
+    .catch((error)=> console.error(error));
+  
+//symbol 
+console.log("\nSymbol ");
+const sym = Symbol('description');
+console.log(sym); 
 
-fetchData()
-    .then((result) => console.log(result))
-    .catch((error) => console.error(error));
 
-const id1 = Symbol("id");
-const id2 = Symbol("id");
-console.log(id1 === id2); 
+//default parameter 
+console.log("\ndefault parameters ");
+function greet(name = 'Anonymous') {
+    console.log(`Hello, ${name}`);
+  }
+  
+  greet(); // Output: Hello, Anonymous
+  greet('harsh'); // Output: Hello, harsh
+  
 
-function greet(name = "Anonymous") {
-    console.log(`Hello, ${name}!`);
-}
-greet();
-greet("harshh");
-
-function sum(...numbers) {
+  //function rest parameters 
+  console.log("\nfunction rest parameters ");
+  function sum(...numbers) {
     return numbers.reduce((acc, curr) => acc + curr, 0);
-}
-console.log(sum(1, 2, 3, 4));
+  }
+  
+  console.log(sum(1, 2, 3, 4));
+  
