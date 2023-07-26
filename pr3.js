@@ -65,21 +65,17 @@ fetchData()
     .then((result) => console.log(result))
     .catch((error) => console.error(error));
 
-
 const id1 = Symbol("id");
 const id2 = Symbol("id");
-
 console.log(id1 === id2); 
 
 function greet(name = "Anonymous") {
     console.log(`Hello, ${name}!`);
 }
-
 greet();
 greet("harshh");
 
 function sum(...numbers) {
     return numbers.reduce((acc, curr) => acc + curr, 0);
 }
-
-console.log(sum(1, 2, 3, 4)); // Output: 10
+console.log(sum(1, 2, 3, 4));
