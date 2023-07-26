@@ -1,4 +1,4 @@
-const stringValue = "Harsh patel!";
+const stringValue = "Harsh patel";
 const numberValue = 42;
 const booleanValue = true;
 
